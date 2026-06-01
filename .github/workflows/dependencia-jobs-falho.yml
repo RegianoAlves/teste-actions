@@ -1,4 +1,4 @@
-name: Workflow com Depend de Jobs que Falha
+name: Workflow com Dependencia de Jobs que Falha
 
 on:
   push:
