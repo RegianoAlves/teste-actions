@@ -1,4 +1,4 @@
-name: Node.js CI # Nome do workflow (pipeline)
+name: CI - Teste Calculadora Node.js Jest # Nome do workflow (pipeline)
 
 on: # Eventos que disparam o workflow
   push: # Evento de push para a branch main

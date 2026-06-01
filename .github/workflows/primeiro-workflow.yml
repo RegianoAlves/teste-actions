@@ -1,4 +1,4 @@
-name: Workflow
+name: Primeiro workflow simples pra teste
 
 on:
   push:
