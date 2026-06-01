@@ -29,4 +29,4 @@ jobs: # Define os trabalhos (jobs) que serão executados no workflow
       run: npm install # Comando para instalar as dependências do projeto usando npm
 
     - name: Run tests # Passo para executar os testes do projeto
-      run: npm test # Comando para executar os testes do projeto usando npm
+      run: npx jest # Comando para executar os testes do projeto usando npm
