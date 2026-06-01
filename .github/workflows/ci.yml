@@ -1,31 +1,32 @@
-name: Node.js CI
+name: Node.js CI # Nome do workflow (pipeline)
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: # Eventos que disparam o workflow
+  push: # Evento de push para a branch main
+    branches: # Especifica as branches que disparam o evento de push
+      - main # Evento de pull request para a branch main
+  pull_request: # Evento de pull request para a branch main
+    branches: # Especifica as branches que disparam o evento de pull request
+      - main # Evento de workflow manual (workflow_dispatch)
+  workflow_dispatch: # Permite disparar o workflow manualmente
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+jobs: # Define os trabalhos (jobs) que serão executados no workflow
+  build: # Nome do trabalho (job)
+    runs-on: ubuntu-latest # Especifica o ambiente de execução do trabalho (job)
 
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
+    strategy: # Define a estratégia de execução do trabalho (job)
+      matrix: # Define uma matriz de variáveis para executar o trabalho (job) em diferentes ambientes
+        node-version: [14.x, 16.x]  # Especifica as versões do Node.js para testar
 
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Use Node.js
-      uses: actions/setup-node@v4
-      with: 
-        node-version: '20.x'
+    steps: # Define os passos (steps) que serão executados no trabalho (job)
+    - uses: actions/checkout@v4 # Passo para fazer checkout do código-fonte do repositório
 
-    - name: Install dependencies
-      run: npm install
+    - name: Use Node.js # Passo para configurar o ambiente Node.js
+      uses: actions/setup-node@v4 # Ação para configurar o ambiente Node.js (@v4) representa a versão (tag) da action mais recente
+      with: # Especifica os parâmetros para a ação de configuração do Node.js
+        node-version: '20.x' # Especifica a versão do Node.js a ser usada (20.x)
 
-    - name: Run tests
-      run: npm test
+    - name: Install dependencies # Passo para instalar as dependências do projeto
+      run: npm install # Comando para instalar as dependências do projeto usando npm
+
+    - name: Run tests # Passo para executar os testes do projeto
+      run: npm test # Comando para executar os testes do projeto usando npm
